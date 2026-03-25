@@ -31,7 +31,6 @@ class ScoreActivity : AppCompatActivity() {
             showFinishDialog()
         }
 
-        // 🔥 SAFE CAST (evita crash)
         val sportString = intent.getStringExtra("SPORT")
 
         val sport = try {
@@ -54,7 +53,7 @@ class ScoreActivity : AppCompatActivity() {
 
     private fun setupRenderer(sport: SportType) {
 
-        container.removeAllViews() // 🔥 evita sobreposição
+        container.removeAllViews()
 
         renderer = when (sport) {
             SportType.BASKETBALL -> BasketballRenderer { team, points ->
@@ -78,7 +77,6 @@ class ScoreActivity : AppCompatActivity() {
         container.addView(view)
     }
 
-    // 🔥 Dialog de confirmação
     private fun showFinishDialog() {
         AlertDialog.Builder(this)
             .setTitle("Encerrar partida")
@@ -90,7 +88,6 @@ class ScoreActivity : AppCompatActivity() {
             .show()
     }
 
-    // 🏁 Finalização → volta pra tela de modalidades
     private fun finishGame() {
         val intent = Intent(this, PickModality::class.java)
 

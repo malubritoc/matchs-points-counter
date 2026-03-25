@@ -29,7 +29,6 @@ class ConfigActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.btnIniciar)
 
-        // 🔽 Spinner setup
         val opcoes = arrayOf("2", "3", "4")
 
         val adapter = ArrayAdapter(
@@ -41,7 +40,6 @@ class ConfigActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
-        // 🔁 Mostrar/esconder campos dinamicamente
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val qtd = parent.getItemAtPosition(position).toString().toInt()
@@ -53,7 +51,6 @@ class ConfigActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        // 🚀 Botão iniciar
         btn.setOnClickListener {
 
             val sport = when (esporteString?.trim()?.uppercase()) {
@@ -68,17 +65,14 @@ class ConfigActivity : AppCompatActivity() {
 
             val intent = Intent(this, ScoreActivity::class.java)
 
-            // 🔥 Dados principais
             intent.putExtra("SPORT", sport.name)
             intent.putExtra("QTD_TIMES", spinner.selectedItem.toString().toInt())
 
-            // 🏷️ Nomes dos times
             intent.putExtra("TIME_A", timeA.text.toString())
             intent.putExtra("TIME_B", timeB.text.toString())
             intent.putExtra("TIME_C", timeC.text.toString())
             intent.putExtra("TIME_D", timeD.text.toString())
 
-            // ⚙️ Configurações
             intent.putExtra("LIMITE", limite.text.toString())
             intent.putExtra("TEMPO", tempo.text.toString())
 

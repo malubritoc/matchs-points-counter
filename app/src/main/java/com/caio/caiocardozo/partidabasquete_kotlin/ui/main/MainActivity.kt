@@ -1,10 +1,11 @@
-package com.caio.caiocardozo.partidabasquete_kotlin
+package com.caio.caiocardozo.partidabasquete_kotlin.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.caio.caiocardozo.partidabasquete_kotlin.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -72,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         pTimeA.setText(pontuacaoTimeA.toString())
         pontuacaoTimeB = 0
         pTimeB.setText(pontuacaoTimeB.toString())
-        Toast.makeText(this,"Placar reiniciado",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"Placar reiniciado", Toast.LENGTH_SHORT).show()
 
     }
 }

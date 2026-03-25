@@ -12,7 +12,7 @@
 
         <!-- TELA INICIAL -->
         <activity
-            android:name=".PickModality"
+            android:name=".ui.modality.PickModality"
             android:exported="true">
 
             <intent-filter>
@@ -22,9 +22,11 @@
 
         </activity>
 
-        <activity android:name=".ConfigActivity" />
+        <activity android:name=".ui.config.ConfigActivity" />
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".ui.main.MainActivity" />
+
+        <activity android:name=".ui.scoreboard.ScoreActivity" />
 
     </application>
 

@@ -1,10 +1,13 @@
-package com.caio.caiocardozo.partidabasquete_kotlin
+package com.caio.caiocardozo.partidabasquete_kotlin.ui.config
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import com.caio.caiocardozo.partidabasquete_kotlin.R
+import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.model.SportType
+import com.caio.caiocardozo.partidabasquete_kotlin.ui.scoreboard.ScoreActivity
 
 class ConfigActivity : AppCompatActivity() {
 
@@ -12,7 +15,7 @@ class ConfigActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_config)
 
-        val esporte = intent.getStringExtra("ESPORTE")
+        val esporteString = intent.getStringExtra("ESPORTE")
 
         val spinner: Spinner = findViewById(R.id.qtdTimes)
 
@@ -26,7 +29,7 @@ class ConfigActivity : AppCompatActivity() {
 
         val btn = findViewById<Button>(R.id.btnIniciar)
 
-        // Spinner setup
+        // 🔽 Spinner setup
         val opcoes = arrayOf("2", "3", "4")
 
         val adapter = ArrayAdapter(
@@ -38,7 +41,7 @@ class ConfigActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
-        // Mostrar/esconder campos dinamicamente
+        // 🔁 Mostrar/esconder campos dinamicamente
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val qtd = parent.getItemAtPosition(position).toString().toInt()
@@ -50,19 +53,32 @@ class ConfigActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
 
-        // Botão iniciar
+        // 🚀 Botão iniciar
         btn.setOnClickListener {
 
-            val intent = Intent(this, MainActivity::class.java)
+            val sport = when (esporteString?.trim()?.uppercase()) {
+                "BASQUETE", "BASKETBALL" -> SportType.BASKETBALL
+                "VOLEI", "VOLLEYBALL" -> SportType.VOLLEYBALL
+                "TENIS", "TENNIS" -> SportType.TENNIS
+                else -> {
+                    println("DEBUG ERRO ESPORTE: $esporteString")
+                    SportType.BASKETBALL
+                }
+            }
 
-            intent.putExtra("ESPORTE", esporte)
+            val intent = Intent(this, ScoreActivity::class.java)
+
+            // 🔥 Dados principais
+            intent.putExtra("SPORT", sport.name)
             intent.putExtra("QTD_TIMES", spinner.selectedItem.toString().toInt())
 
+            // 🏷️ Nomes dos times
             intent.putExtra("TIME_A", timeA.text.toString())
             intent.putExtra("TIME_B", timeB.text.toString())
             intent.putExtra("TIME_C", timeC.text.toString())
             intent.putExtra("TIME_D", timeD.text.toString())
 
+            // ⚙️ Configurações
             intent.putExtra("LIMITE", limite.text.toString())
             intent.putExtra("TEMPO", tempo.text.toString())
 

@@ -27,7 +27,6 @@ class TennisRenderer(
         nameA.text = teamAName
         nameB.text = teamBName
 
-        // 🔥 TIME A
         view.findViewById<Button>(R.id.btn15A).setOnClickListener {
             onAddPoints(0, 15)
         }

@@ -45,14 +45,12 @@ class ScoreActivity : AppCompatActivity() {
             SportType.BASKETBALL
         }
 
-        // 🔥 NOMES COM FALLBACK
         teamAName = intent.getStringExtra("TIME_A")
             .takeIf { !it.isNullOrBlank() } ?: "Time A"
 
         teamBName = intent.getStringExtra("TIME_B")
             .takeIf { !it.isNullOrBlank() } ?: "Time B"
 
-        // 🔥 LIMITE
         val limiteExtra = intent.getSerializableExtra("LIMITE") as? Int
 
         limite = when {
@@ -69,7 +67,7 @@ class ScoreActivity : AppCompatActivity() {
 
         viewModel.state.observe(this) { state ->
             renderer?.bind(state)
-            checkGameEnd(state) // 🔥 VOLTOU
+            checkGameEnd(state)
         }
     }
 
@@ -110,7 +108,6 @@ class ScoreActivity : AppCompatActivity() {
         container.addView(view)
     }
 
-    // 🔥 VERIFICA LIMITE
     private fun checkGameEnd(state: Any) {
         val gameState = state as? GameState ?: return
         val limit = limite ?: return
@@ -123,7 +120,6 @@ class ScoreActivity : AppCompatActivity() {
         }
     }
 
-    // 🏆 ALERTA VENCEDOR
     private fun showWinnerDialog(winnerIndex: Int) {
         val winnerName = if (winnerIndex == 0) teamAName else teamBName
 
@@ -137,7 +133,6 @@ class ScoreActivity : AppCompatActivity() {
             .show()
     }
 
-    // 🔥 BOTÃO ENCERRAR
     private fun showFinishDialog() {
         AlertDialog.Builder(this)
             .setTitle("Encerrar partida")

@@ -10,11 +10,28 @@
         android:layout_width="0dp"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/timeA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time A"
+            android:gravity="center"
+            android:textSize="14sp"/>
+
         <TextView android:id="@+id/scoreA" android:text="0" android:textSize="54sp" android:gravity="center" android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <Button android:id="@+id/btnA" android:text="PONTO" android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn15A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+15" />
+
+        <Button
+            android:id="@+id/btn10A"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+10" />
     </LinearLayout>
 
     <LinearLayout
@@ -23,11 +40,28 @@
         android:layout_width="0dp"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/timeB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time B"
+            android:gravity="center"
+            android:textSize="14sp"/>
+
         <TextView android:id="@+id/scoreB" android:text="0" android:textSize="54sp" android:gravity="center" android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <Button android:id="@+id/btnB" android:text="PONTO" android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btn15B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+15" />
+
+        <Button
+            android:id="@+id/btn10B"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+10" />
     </LinearLayout>
 
 </LinearLayout>

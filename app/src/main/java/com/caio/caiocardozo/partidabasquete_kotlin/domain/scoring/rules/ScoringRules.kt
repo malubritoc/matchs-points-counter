@@ -1,7 +1,6 @@
 import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.model.SportType
 import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.rules.BasketballRule
 import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.rules.ScoringRule
-import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.rules.TennisRule
 import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.rules.VolleyballRule
 
 object ScoringRules {
@@ -12,7 +11,7 @@ object ScoringRules {
             SportType.VOLLEYBALL -> VolleyballRule()
             SportType.TENNIS -> TennisRule()
 
-            else -> BasketballRule() // 🔥 NUNCA DEIXA SEM
+            else -> BasketballRule()
         }
     }
 }

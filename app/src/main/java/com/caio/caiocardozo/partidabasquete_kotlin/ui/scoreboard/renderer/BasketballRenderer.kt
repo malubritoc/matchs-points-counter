@@ -9,7 +9,9 @@ import com.caio.caiocardozo.partidabasquete_kotlin.R
 import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.model.GameState
 
 class BasketballRenderer(
-    private val onAddPoints: (team: Int, points: Int) -> Unit
+    private val teamAName: String,
+    private val teamBName: String,
+    private val onAddPoints: (Int, Int) -> Unit
 ) : ScoreRenderer<GameState> {
 
     private lateinit var scoreA: TextView
@@ -19,16 +21,38 @@ class BasketballRenderer(
         val view = LayoutInflater.from(container.context)
             .inflate(R.layout.view_basketball, container, false)
 
+        val nameA = view.findViewById<TextView>(R.id.timeA)
+        val nameB = view.findViewById<TextView>(R.id.timeB)
+
         scoreA = view.findViewById(R.id.scoreA)
         scoreB = view.findViewById(R.id.scoreB)
 
-        view.findViewById<Button>(R.id.btn3A).setOnClickListener { onAddPoints(0, 3) }
-        view.findViewById<Button>(R.id.btn2A).setOnClickListener { onAddPoints(0, 2) }
-        view.findViewById<Button>(R.id.btn1A).setOnClickListener { onAddPoints(0, 1) }
+        nameA.text = teamAName
+        nameB.text = teamBName
 
-        view.findViewById<Button>(R.id.btn3B).setOnClickListener { onAddPoints(1, 3) }
-        view.findViewById<Button>(R.id.btn2B).setOnClickListener { onAddPoints(1, 2) }
-        view.findViewById<Button>(R.id.btn1B).setOnClickListener { onAddPoints(1, 1) }
+        view.findViewById<Button>(R.id.btn3A).setOnClickListener {
+            onAddPoints(0, 3)
+        }
+
+        view.findViewById<Button>(R.id.btn2A).setOnClickListener {
+            onAddPoints(0, 2)
+        }
+
+        view.findViewById<Button>(R.id.btn1A).setOnClickListener {
+            onAddPoints(0, 1)
+        }
+
+        view.findViewById<Button>(R.id.btn3B).setOnClickListener {
+            onAddPoints(1, 3)
+        }
+
+        view.findViewById<Button>(R.id.btn2B).setOnClickListener {
+            onAddPoints(1, 2)
+        }
+
+        view.findViewById<Button>(R.id.btn1B).setOnClickListener {
+            onAddPoints(1, 1)
+        }
 
         return view
     }

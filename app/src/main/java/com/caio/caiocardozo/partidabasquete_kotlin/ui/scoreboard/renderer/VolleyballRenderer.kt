@@ -6,6 +6,8 @@ import com.caio.caiocardozo.partidabasquete_kotlin.R
 import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.model.GameState
 
 class VolleyballRenderer(
+    private val teamAName: String,
+    private val teamBName: String,
     private val onAddPoint: (Int) -> Unit
 ) : ScoreRenderer<GameState> {
 
@@ -16,11 +18,22 @@ class VolleyballRenderer(
         val view = LayoutInflater.from(container.context)
             .inflate(R.layout.view_volleyball, container, false)
 
+        val nameA = view.findViewById<TextView>(R.id.timeA)
+        val nameB = view.findViewById<TextView>(R.id.timeB)
+
         scoreA = view.findViewById(R.id.scoreA)
         scoreB = view.findViewById(R.id.scoreB)
 
-        view.findViewById<Button>(R.id.btnA).setOnClickListener { onAddPoint(0) }
-        view.findViewById<Button>(R.id.btnB).setOnClickListener { onAddPoint(1) }
+        nameA.text = teamAName
+        nameB.text = teamBName
+
+        view.findViewById<Button>(R.id.btnA).setOnClickListener {
+            onAddPoint(0)
+        }
+
+        view.findViewById<Button>(R.id.btnB).setOnClickListener {
+            onAddPoint(1)
+        }
 
         return view
     }

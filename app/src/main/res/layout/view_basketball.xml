@@ -3,7 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <!-- TIME A -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -36,7 +35,6 @@
         <Button android:id="@+id/btn1A" android:text="LANCE LIVRE" android:layout_width="match_parent" android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <!-- TIME B -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"

@@ -3,37 +3,53 @@ package com.caio.caiocardozo.partidabasquete_kotlin.ui.scoreboard.renderer
 import android.view.*
 import android.widget.*
 import com.caio.caiocardozo.partidabasquete_kotlin.R
-import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.rules.TennisState
+import com.caio.caiocardozo.partidabasquete_kotlin.domain.scoring.model.GameState
 
 class TennisRenderer(
-    private val onAddPoint: (Int) -> Unit
-) : ScoreRenderer<TennisState> {
+    private val teamAName: String,
+    private val teamBName: String,
+    private val onAddPoints: (Int, Int) -> Unit
+) : ScoreRenderer<GameState> {
 
     private lateinit var scoreA: TextView
     private lateinit var scoreB: TextView
-
-    private val pointsMap = listOf("0", "15", "30", "40")
 
     override fun createView(container: ViewGroup): View {
         val view = LayoutInflater.from(container.context)
             .inflate(R.layout.view_tennis, container, false)
 
+        val nameA = view.findViewById<TextView>(R.id.timeA)
+        val nameB = view.findViewById<TextView>(R.id.timeB)
+
         scoreA = view.findViewById(R.id.scoreA)
         scoreB = view.findViewById(R.id.scoreB)
 
-        view.findViewById<Button>(R.id.btnA).setOnClickListener {
-            onAddPoint(0)
+        nameA.text = teamAName
+        nameB.text = teamBName
+
+        // 🔥 TIME A
+        view.findViewById<Button>(R.id.btn15A).setOnClickListener {
+            onAddPoints(0, 15)
         }
 
-        view.findViewById<Button>(R.id.btnB).setOnClickListener {
-            onAddPoint(1)
+        view.findViewById<Button>(R.id.btn10A).setOnClickListener {
+            onAddPoints(0, 10)
+        }
+
+        // 🔥 TIME B
+        view.findViewById<Button>(R.id.btn15B).setOnClickListener {
+            onAddPoints(1, 15)
+        }
+
+        view.findViewById<Button>(R.id.btn10B).setOnClickListener {
+            onAddPoints(1, 10)
         }
 
         return view
     }
 
-    override fun bind(state: TennisState) {
-        scoreA.text = pointsMap.getOrElse(state.points[0]) { "40" }
-        scoreB.text = pointsMap.getOrElse(state.points[1]) { "40" }
+    override fun bind(state: GameState) {
+        scoreA.text = state.scores[0].toString()
+        scoreB.text = state.scores[1].toString()
     }
 }

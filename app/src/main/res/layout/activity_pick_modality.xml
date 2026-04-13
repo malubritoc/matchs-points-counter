@@ -1,258 +1,290 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/beige">
 
-    <LinearLayout
+    <!-- 🔝 TOOLBAR COM LOGO -->
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:layout_height="80dp"
+        android:background="@color/colorPrimaryDark"
+        android:elevation="4dp">
 
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/trophy"
+            android:layout_gravity="center"
+            android:layout_marginRight="2dp"/>
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:textSize="32dp"
+            android:textColor="#fff"
+            android:text="SCORE"
+            android:layout_gravity="center"
+            android:textFontWeight="700"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32dp"
+            android:textColor="@color/colorAccent"
+            android:text="BOARD"
+            android:layout_gravity="center"
+            android:textFontWeight="700"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Escolha a modalidade para começar"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:columnCount="2"
+        android:padding="12dp">
+
+        <!-- BASQUETE -->
+        <LinearLayout
+            android:id="@+id/cardBasquete"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
             android:gravity="center"
             android:padding="16dp"
-            android:text="Escolha a modalidade"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnCount="2"
-            android:padding="16dp">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_basketball" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardBasquete">
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Basquete"/>
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Basquete"
-                    android:src="@drawable/ic_basketball" />
+        <!-- FUTEBOL -->
+        <LinearLayout
+            android:id="@+id/cardFutebol"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Basquete" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_soccer" />
 
-            </LinearLayout>
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Futebol"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardFutebol">
+        <!-- VÔLEI -->
+        <LinearLayout
+            android:id="@+id/cardVolei"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Futebol"
-                    android:src="@drawable/ic_soccer" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_volley" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Futebol" />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Vôlei"/>
+        </LinearLayout>
 
-            </LinearLayout>
+        <!-- VÔLEI DE AREIA -->
+        <LinearLayout
+            android:id="@+id/cardVoleiDeAreia"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardVolei">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_beachvolley" />
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Volei"
-                    android:src="@drawable/ic_volley" />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Vôlei de areia"/>
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Vôlei" />
+        <!-- TÊNIS -->
+        <LinearLayout
+            android:id="@+id/cardTenis"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-            </LinearLayout>
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_tennis" />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardVoleiDeAreia">
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Tênis"/>
+        </LinearLayout>
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="VoleiDeAreia"
-                    android:src="@drawable/ic_beachvolley" />
+        <!-- TÊNIS DE MESA -->
+        <LinearLayout
+            android:id="@+id/cardTenisDeMesa"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Vôlei de areia" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_tabletennis" />
 
-            </LinearLayout>
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Tênis de mesa"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardTenis">
+        <!-- RUGBY -->
+        <LinearLayout
+            android:id="@+id/cardRugby"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Tenis"
-                    android:src="@drawable/ic_tennis" />
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_rugby" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Tênis" />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Rugby"/>
+        </LinearLayout>
 
-            </LinearLayout>
+        <!-- LIVRE -->
+        <LinearLayout
+            android:id="@+id/cardLivre"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:background="@drawable/bg_button"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:elevation="3dp">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardTenisDeMesa">
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_free" />
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Tenis de mesa"
-                    android:src="@drawable/ic_tabletennis" />
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="Livre"/>
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Tênis de mesa" />
+    </GridLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardRugby">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Rugby"
-                    android:src="@drawable/ic_rugby" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Rugby" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="8dp"
-                android:background="@drawable/bg_button"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:id="@+id/cardLivre">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:contentDescription="Livre"
-                    android:src="@drawable/ic_free" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Livre" />
-
-            </LinearLayout>
-
-        </GridLayout>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
